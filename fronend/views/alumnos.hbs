@@ -1,0 +1,38 @@
+<!-- views/alumnos/lista.hbs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Alumnos</title>
+    <link href="/css/tailwind.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mx-auto mx-8">
+        <h1 class="text-2xl font-semibold mb-4">Lista de Alumnos</h1>
+        
+        <a href="/alumnos/registro_alumnos" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">Registrar Nuevo Alumno</a>
+
+        <table class="w-10/12 mt-6 border border-gray-200 mr-8">
+            <thead>
+                <tr>
+                    <th class="border border-gray-300 px-4 py-2">Nombre</th>
+                    <th class="border border-gray-300 px-4 py-2">Carnet</th>
+                    <th class="border border-gray-300 px-4 py-2">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each alumnos}}
+                <tr>
+                    <td class="border border-gray-300 px-4">{{this.nombre1}} {{this.nombre2}} {{this.apellido1}} {{this.apellido2}}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{this.codigo_carrera}} {{anio_inicio}} {{codigo_estudiante}}</td>
+                    <td class="border border-gray-300 px-4 py-2">
+                        <a href="/alumnos/edit/{{this.codigo_estudiante}}" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Editar</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

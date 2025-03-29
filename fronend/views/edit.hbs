@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Alumno</title>
+    <link href="/css/tailwind.css" rel="stylesheet">
+</head>
+<body>
+    <div class="w-1/2 flex justify-between mx-auto">
+        <h1 class="text-xl font-bold my-4">Editar Alumno</h1>
+        <a href="/alumnos" class="bg-gray-600 text-white p-2 rounded mt-4">Volver</a>
+    </div>
+
+    <form action="/alumnos/edit/{{alumno.codigo_estudiante}}" method="POST" class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
+        <!-- Código de Carrera -->
+        <div class="w-full flex flex-col">
+            <label class="block text-gray-700">Carnet:</label>
+            <div class="flex w-full">
+                <div class="mb-4">
+                    <input type="number" name="codigo_carrera" required value="{{alumno.codigo_carrera}}" 
+                        class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+
+                <!-- Año de Inicio -->
+                <div class="mb-4">
+                    <input type="text" name="anio_inicio" required maxlength="2" value="{{alumno.anio_inicio}}"
+                        class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+
+                <!-- Código de Estudiante -->
+                <div class="mb-4">
+                    <input type="text" name="codigo_estudiante" required maxlength="6" value="{{alumno.codigo_estudiante}}"
+                        class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+            </div>
+        </div>
+
+        <!-- Nombres y Apellidos -->
+        <div class="grid grid-cols-2 gap-4">
+            <div>
+                <label class="block text-gray-700">Primer Nombre:</label>
+                <input type="text" name="nombre1" required value="{{alumno.nombre1}}" 
+                    class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+                <label class="block text-gray-700">Segundo Nombre (Opcional):</label>
+                <input type="text" name="nombre2" value="{{alumno.nombre2}}"
+                    class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 mt-4">
+            <div>
+                <label class="block text-gray-700">Primer Apellido:</label>
+                <input type="text" name="apellido1" required value="{{alumno.apellido1}}" 
+                    class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+                <label class="block text-gray-700">Segundo Apellido:</label>
+                <input type="text" name="apellido2" value="{{alumno.apellido2}}"
+                    class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+        </div>
+
+        <!-- Teléfono -->
+        <div class="mb-4 mt-4">
+            <label class="block text-gray-700">Teléfono:</label>
+            <input type="tel" name="telefono" required value="{{alumno.telefono}}" 
+                class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <!-- Correo Electrónico -->
+        <div class="mb-4">
+            <label class="block text-gray-700">Correo Electrónico:</label>
+            <input type="email" name="correoElectronico" required value="{{alumno.correoElectronico}}" 
+                class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <!-- Fecha de Nacimiento -->
+        <div class="mb-4">
+            <label class="block text-gray-700">Fecha de Nacimiento:</label>
+            <input type="date" name="fechaNacimiento" required value="{{alumno.fechaNacimiento}}" 
+                class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <button type="submit" class="bg-blue-600 text-white p-2 rounded">Actualizar Alumno</button>
+    </form>
+</body>
+</html>
